@@ -1,26 +1,19 @@
 
-   //+------------------------------------------------------------------------------+
-   //| MultiSymbolEA.mq5                                                            |
-   //|                                                                              |
-   //| DISCLAIMER AND TERMS OF USE OF THIS EXPERT ADVISOR                           |
-   //|                                                                              |
-   //| THIS SOFTWARE (EXPERT ADVISOR) IS PROVIDED “AS IS”, WITHOUT ANY SUPPORT, AND |
-   //| IS NOT GUARANTEED TO BE BUG FREE.                                            |
-   //|                                                                              |
-   //| IT IS "NOT" INTENDED TO BE USED AS A TRADING EXPERT ADVISOR. THE PURPOSE IS  |
-   //| TO ILLUSTRATE HOW THE COMPONENTS OF A MULTI-SYMBOL EA MIGHT BE ASSEMBLED.    |
-   //|                                                                              |
-   //| IT IS THEN THE FULL RESPONSIBILITY OF THE CONSUMER TO USE THIS AS A GUIDE TO |
-   //| HELP CONVERT THEIR OWN SINGLE-SYMBOL EA TO HAVE A MULTI-SYMBOL CAPABILITY.   |
-   //|                                                                              |
-   //| IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE   |
-   //| ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE                              |
-   //| LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR          |
-   //| CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, LOSS OF USE, DATA, OR  |
-   //| PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED.                           |
-   //|                                                                              |
-   //| YOU USE THE CODE FROM THIS EA AT YOUR OWN RISK.                              |
-   //+------------------------------------------------------------------------------+
+   //+--------------------------------------------------------------------------------+
+   //| multi-symbol.mq5                                                               |
+   //|                                                                                |
+   //| DISCLAIMER AND TERMS OF USE OF THIS EXPERT ADVISOR                             |
+   //| THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"    |
+   //| AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE      |
+   //| IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE |
+   //| DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE   |
+   //| FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL     |
+   //| DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR     |
+   //| SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER     |
+   //| CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,  |
+   //| OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE  |
+   //| OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.           |
+   //+--------------------------------------------------------------------------------+
    
    //NOTE 1: If using the code in this EA to help convert your own EA to have a multi-symbol capability
    //        always remember to take a safe copy of your EA code before making any changes.
@@ -32,7 +25,7 @@
    //        the host PC. Monitor memory to ensure this is not causing paging to occur since this will slow down
    //        the process considerably. If paging does occur, additional memory may need to be purchased.
    
-   #property link          "http://www.tradelikeamachine.com"
+   #property link          "https://www.darwinex.com"
    #property description   "Multi Symbol EA Code Example - Darwinex Video Series"
    #property strict
   
