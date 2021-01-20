@@ -24,4 +24,3 @@ void OnStart()
    //Naviagte to random position
    ChartNavigate(0, CHART_END, -1 * randomShift); 
 }
-
