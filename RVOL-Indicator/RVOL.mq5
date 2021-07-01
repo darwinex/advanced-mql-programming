@@ -144,6 +144,11 @@ void CalculateRelVolume(const int startBar, const int rates_total, const long& v
          else 
             ExtColorsBuffer[i] = 2.0;
       }
+      else
+      {
+         ExtRelVolumesBuffer[i] = 0.0;
+         ExtColorsBuffer[i] = 0.0;
+      }
    }
 }
 
