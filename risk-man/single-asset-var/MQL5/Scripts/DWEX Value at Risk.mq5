@@ -1,5 +1,5 @@
 //+--------------------------------------------------------------------------------+
-//| DWEX Value at Risk.mqh                                                         |
+//| DWEX Value at Risk Single Asset.mqh                                            |
 //|                                                                                |
 //| THIS CODE IS PROVIDED FOR ILLUSTRATIVE PURPOSES ONLY. ALWAYS THOUROUGHLY TEST  |
 //| ANY CODE BEFORE THEN ADAPTING TO YOUR OWN PERSONAL RISK OBJECTIVES AND RISK    |
@@ -28,12 +28,12 @@
 
 #property copyright           "Copyright 2022, Darwinex"
 #property link                "https://www.darwinex.com"
-#property description         "Value at Risk (VaR) Script Example Code"
+#property description         "Value at Risk (VaR) Script Example Code - Single Asset"
 #property script_show_inputs
 #property strict
 
-//CUSTOM INCLUDE FILE - ENSURE THE FOLLOWING INCLUDE FILE IS LOCATED IN ..\[DATA_FOLDER]\MQL5\Include\Darwinex\DWEX Portfolio Risk Man.mqh]
-#include <Darwinex\DWEX Portfolio Risk Man.mqh>
+//CUSTOM INCLUDE FILE - ENSURE THE FOLLOWING INCLUDE FILE IS LOCATED IN ..\[DATA_FOLDER]\MQL5\Include\Darwinex\DWEX Portfolio Risk Man Single Asset.mqh]
+#include <Darwinex\DWEX Portfolio Risk Man Single Asset.mqh>
 
 //INPUTS
 input ENUM_TIMEFRAMES VaRTimeframe  = PERIOD_D1;   //Value at Risk Timeframe
@@ -48,3 +48,4 @@ void OnStart()
    if(PortfolioRisk.CalculateVaR(AssetName, AssetLotSize))
       MessageBox("Value at Risk for " + DoubleToString(AssetLotSize, 2) + " lots " + AssetName + ": " + DoubleToString(PortfolioRisk.SinglePositionVaR, 2));
 }
+   
