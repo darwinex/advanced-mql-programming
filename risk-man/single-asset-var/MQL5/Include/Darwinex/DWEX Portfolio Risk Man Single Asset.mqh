@@ -69,7 +69,7 @@ bool CPortfolioRiskMan::CalculateVaR(string Asset, double AssetPosSize) //N.B. P
    }
    
    //GET NOMINAL VALUE FOR PROPOSED POSITION
-   //TODO: THIS ASSUMES ALL ASSETS CALCULATED USING ACCOUNT CURRENCY. FOR OTHERS E.G. SPX500 NEED TO DO CURRENCY CONVERSION SAME AS IN THE MAIN EA WHEN CALCULATING THE MAX RISK OF THE STOP LOSS
+   //TODO: THIS ASSUMES ALL ASSETS CALCULATED USING ACCOUNT CURRENCY. FOR OTHERS E.G. SPX500 NEED TO DO CURRENCY CONVERSION
    double nominalValuePerUnitPerLot = SymbolInfoDouble(Asset, SYMBOL_TRADE_TICK_VALUE) / SymbolInfoDouble(Asset, SYMBOL_TRADE_TICK_SIZE);
    double nominalValue              = MathAbs(AssetPosSize) * nominalValuePerUnitPerLot * iClose(Asset, PERIOD_M1, 0);  //RATIONALE: This calculates how much would be lost on a position that moved from it's current price to a 0 price. This is equivelent to the nominal amount invested if we were trading with 1:1 leverage, i.e. the totasl amount you would lose of the asset's price went to 0
 
