@@ -1,0 +1,70 @@
+//+------------------------------------------------------------------+
+//|                                             CiIchimoku Class.mq5 |
+//|                Copyright 2022, Darwinex and Trade Like A Machine |
+//|                                         https://www.darwinex.com |
+//+------------------------------------------------------------------+
+#property copyright "Copyright 2022, Darwinex and Trade Like A Machine"
+#property link      "https://www.darwinex.com"
+#property version   "1.00"
+
+//METAQUOTES SUPPLIED INCLUDE FILE
+#include <Indicators/Trend.mqh> //MetaQuotes supplied library of main and auxiliary classes to make the management of technical indicators and timeseries easier. Currently used for management of the Ichimoku Indicator (CiIchimoku Class)
+   
+//INDICATOR CLASS INSTANCES - NOTE THAT METAQUOTES CLASS LIBRARIES TO MAKE THE MANAGEMENT OF TECHNICAL INDICATORS AND TIMESERIES EASIER. 
+CiIchimoku* IchimokuIndicator[]; //CiIchimoku Class from #include <Indicators/Trend.mqh> 
+   
+
+int OnInit()
+{
+   // ### Declare and initialise indicator handle ###
+   ResetLastError();
+   
+   //INSTATIATE NEW INSTANCE OF CiIchimoku CLASS
+   IchimokuIndicator = new CiIchimoku();
+      
+   if(!IchimokuIndicator.Create(_Symbol, _Period, 9, 26, 52))
+   {
+      MessageBox("Failed to create new class instance (error code: " + IntegerToString(GetLastError()) + ")");
+                   
+      //Don't proceed
+      return(INIT_FAILED);
+   }
+      
+   Print("Ichimoku instance successfully created");
+
+   return(INIT_SUCCEEDED);
+}
+
+
+void OnTick()
+{
+   //UPDATE INDICATOR DATA
+   IchimokuIndicator.Refresh(-1);  
+   
+   double senkouSpanA_Bar0       = IchimokuIndicator.SenkouSpanA(0);     //Senkou Span A (That defines one boundary of the kumo) 
+   double senkouSpanB_Bar0       = IchimokuIndicator.SenkouSpanB(0);     //Senkou Span B (That defines the other boundary of the kumo) 
+   
+   double senkouSpanA_MostRecent = IchimokuIndicator.SenkouSpanA(-26);   //Senkou Span A 26 periods ahead of price 
+   double senkouSpanB_MostRecent = IchimokuIndicator.SenkouSpanB(-26);   //Senkou Span B 26 periods ahead of price 
+      
+   double chikouSpan_MostRecent  = IchimokuIndicator.ChinkouSpan(26);
+   
+   double tenkanSen_Bar0         = IchimokuIndicator.TenkanSen(0);      
+   double kijunSen_Bar0          = IchimokuIndicator.KijunSen(0);   
+   
+   Comment("\nICHIMOKU VALUES:\n\n" +
+   
+           "  SENKOU SPAN A & B (ICHIMOKU CLOUD):\n" +
+           "    SENKOU SPAN A | BAR 0       | " + DoubleToString(senkouSpanA_Bar0, 4) + "\n" +
+           "    SENKOU SPAN B | BAR 0       | " + DoubleToString(senkouSpanB_Bar0, 4) + "\n" +
+           "    SENKOU SPAN A | MOST RECENT | " + DoubleToString(senkouSpanA_MostRecent, 4) + "\n" +
+           "    SENKOU SPAN B | MOST RECENT | " + DoubleToString(senkouSpanB_MostRecent, 4) + "\n\n" +
+           
+           "  CHIKOU SPAN:\n" +
+           "    CHIKOU SPAN   | MOST RECENT | " + DoubleToString(chikouSpan_MostRecent, 4) + "\n\n" +
+           
+           "  TENKAN SEN AND KIJUN SEN:\n" +
+           "    TENKAN SEN    | BAR 0       | " + DoubleToString(tenkanSen_Bar0, 4) + "\n" +
+           "    KIJUN SEN     | BAR 0       | " + DoubleToString(kijunSen_Bar0, 4));
+}
+
